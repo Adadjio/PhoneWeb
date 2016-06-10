@@ -1,1 +1,11 @@
-﻿
+﻿ul.list-group{
+    border: none;
+}
+
+ul.list-group>li.my-list-group{
+    border: none;
+}
+
+ul.list-group>li.my-list-group>ul.list-group>li{
+    border: none;
+}
