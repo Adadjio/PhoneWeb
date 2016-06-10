@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Все>
+  <ОГТ>
+    <Bureau>Админ. ОГТ</Bureau>
+    <Bureau>БАКП</Bureau>
+    <Bureau>БИО</Bureau>
+    <Bureau>БКИ</Bureau>
+    <Bureau>БКП</Bureau>
+    <Bureau>БМиТТ</Bureau>
+    <Bureau>БМТ</Bureau>
+    <Bureau>БПД</Bureau>
+    <Bureau>БРУП</Bureau>
+    <Bureau>БТО</Bureau>
+    <Bureau>ЛВПТ</Bureau>
+  </ОГТ>
+  <ТО_ППО>
+    <Bureau>Админ. ПО</Bureau>
+    <Bureau>БПО №1</Bureau>
+    <Bureau>БПО №2</Bureau>
+    <Bureau>БРиЗ</Bureau>
+    <Bureau>БС ПО</Bureau>
+    <Bureau>БТиОН ПО</Bureau>
+  </ТО_ППО>
+  <ТО_ГР_И_КПО>
+    <Bureau>Админ. ГРО</Bureau>
+    <Bureau>БГШиПТО</Bureau>
+    <Bureau>БМГК</Bureau>
+    <Bureau>БНИиМ</Bureau>
+    <Bureau>БС ГРиКПО</Bureau>
+  </ТО_ГР_И_КПО>
+  <ТО_ПВ_И_ЭО>
+    <Bureau>БВиЭО</Bureau>
+  </ТО_ПВ_И_ЭО>
+  <ТО_ПМ_И_ШПО>
+    <Bureau>Админ. ПМиШПО</Bureau>
+    <Bureau>БМиШПО</Bureau>
+    <Bureau>БС ПМиШПО</Bureau>
+  </ТО_ПМ_И_ШПО>
+</Все>

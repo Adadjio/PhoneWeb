@@ -1,0 +1,145 @@
+﻿@model PhoneWeb.Models.Employees
+
+
+@{
+    ViewBag.Title = "Телефоны ОГТ";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-center">Телефоны ОГТ</h2>
+
+    <div class="col-md-2 col-sm-2 col-xs-2">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h5>Список бюро по производствам</h5>
+            </div>
+            <div class="panel-body">
+
+                <ul>
+                    <li>
+                        <a href="#" class="active">Все</a>
+                        <ul>
+
+                            @foreach (var _div in ViewBag.Divisions)
+                            {
+                                <li>
+                                    <a href="#">@_div.Name</a>
+                                    <ul>
+                                        @foreach (var bureau in _div.Bureaus)
+                                        {
+                                            <li><a href="#">@bureau</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="col-md-5 col-sm-5 col-xs-5 table-responsive ">
+        
+        @using (Ajax.BeginForm("EmloyeeSearchBySurname", new AjaxOptions { UpdateTargetId = "results" }))
+        {
+            <div class="form-group">
+                <input type="text" name="surname" class="form-control" placeholder="Введите фамилию" />
+                <input type="submit" value="Поиск" class="btn btn-primary" />
+            </div>
+        }
+
+        <div id="results">
+
+        </div>
+
+            @*<table class="table table-striped">
+                <thead>
+                    <tr class="text-uppercase">
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Отчество</th>
+                        <th>Телефон</th>
+                        <th>Номер комнаты</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var emp in Model)
+                    {
+                        <tr>
+                            <td><b>@emp.Surname</b></td>
+                            <td>@emp.Name</td>
+                            <td>@emp.Patronymic</td>
+                            <td>@emp.Phone</td>
+                            <td>@emp.Room</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>*@
+
+        
+    </div>
+
+</div>
+
+@*
+        <details open="open">
+        <summary><a href="#">Все</a></summary>
+
+        <details open="open">
+            <summary><a href="#">ОГТ</a></summary>
+            <ul>
+                <li>iPhone 6S Plus</li>
+                <li>Nexus 6P</li>
+                <li>Galaxy S6 Edge</li>
+                <li>Lumia 950 XL</li>
+            </ul>
+        </details>
+
+        <details open="open">
+            <summary>@Html.ActionLink("ТО ППО", "")</summary>
+            <ul>
+                <li>iPhone 6S Plus</li>
+                <li>Nexus 6P</li>
+                <li>Galaxy S6 Edge</li>
+                <li>Lumia 950 XL</li>
+            </ul>
+        </details>
+
+        <details open="open">
+            <summary>ТО ГРО</summary>
+            <ul>
+                <li>iPhone 6S Plus</li>
+                <li>Nexus 6P</li>
+                <li>Galaxy S6 Edge</li>
+                <li>Lumia 950 XL</li>
+            </ul>
+        </details>
+
+        <details open="open">
+            <summary>ТО ПМиШПО</summary>
+            <ul>
+                <li>iPhone 6S Plus</li>
+                <li>Nexus 6P</li>
+                <li>Galaxy S6 Edge</li>
+                <li>Lumia 950 XL</li>
+            </ul>
+        </details>
+
+        <details open="open">
+            <summary>ТО ПВиЭО</summary>
+            <ul>
+                <li>iPhone 6S Plus</li>
+                <li>Nexus 6P</li>
+                <li>Galaxy S6 Edge</li>
+                <li>Lumia 950 XL</li>
+            </ul>
+        </details>
+    </details>*@

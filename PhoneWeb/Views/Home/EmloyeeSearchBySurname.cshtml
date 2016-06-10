@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<PhoneWeb.Models.Employee>
+
+<div id="searchresults">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr class="text-uppercase">
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Телефон</th>
+                <th>Номер комнаты</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td><b>@emp.Surname</b></td>
+                    <td>@emp.Name</td>
+                    <td>@emp.Patronymic</td>
+                    <td>@emp.Phone</td>
+                    <td>@emp.Room</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+</div>
