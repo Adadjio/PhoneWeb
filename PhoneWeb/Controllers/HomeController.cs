@@ -14,9 +14,6 @@ namespace PhoneWeb.Controllers
 
             ViewBag.Divisions = subDiv;
 
-
-
-
             Employees _emps = new Employees();
             ViewBag.Title = "Телефоны ОГТ";
 
