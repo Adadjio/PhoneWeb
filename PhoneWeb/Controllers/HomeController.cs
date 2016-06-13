@@ -8,19 +8,20 @@ namespace PhoneWeb.Controllers
     {
         // GET: Home
         public ActionResult Index()
-        {            
+        {
             Divisions _div = new Divisions();
             var subDiv = _div.GetSubdivisions();
-
             ViewBag.Divisions = subDiv;
-
+            
             Employees _emps = new Employees();
             ViewBag.Title = "Телефоны ОГТ";
+
+            ViewBag.TxtUnderHeader = "Все телефоны";
 
             return View(_emps);
         }
 
-        //[ChildActionOnly]
+        
         [HttpPost]
         public ActionResult EmloyeeSearch(string surname)
         {
@@ -30,6 +31,8 @@ namespace PhoneWeb.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.TxtUnderHeader = "Все телефоны1";
 
             var temp = _emps.Where(emp => emp.Surname.ToLower().Contains(surname.ToLower())).ToList();
 
