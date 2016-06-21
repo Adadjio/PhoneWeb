@@ -13,7 +13,7 @@
 
 
 
-    <div class="col-md-2 col-sm-2 col-xs-2">
+    <div class="col-md-2 col-sm-5 col-xs-5">
 
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -24,7 +24,8 @@
                 <ul class="list-group">
                     <li class="list-group-item my-list-group">
 
-                        <a href="#" class="active text-uppercase">Все</a>
+                        @*<a href="#" class="active text-uppercase">Все</a>*@
+                        @Ajax.ActionLink("Все", "EmloyeeSearch", new { surname = " "}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post"}, new { @class= "text-uppercase" })
 
                         <ul class="list-group">
 
@@ -32,12 +33,22 @@
                             {
                                 <li class="list-group-item">
 
-                                    <p><a href="#">@_div.Name</a></p>
+                                    <p>
+                                        @*<a href="#">@_div.Name</a>*@
+                                        @{ string t = @_div.Name.ToString();}
+
+                                        @Ajax.ActionLink(t, "EmloyeeFilterByDivision", new { division = t}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
+                                    </p>
 
                                     <ul class="list-group">
                                         @foreach (var bureau in _div.Bureaus)
                                         {
-                                            <li class="list-group-item list-group-item-warning"><a href="#">@bureau</a></li>
+                                            <li class="list-group-item list-group-item-warning">
+                                                @*<a href="#">@bureau</a>*@
+                                                @{ string t2 = @bureau.ToString();}
+
+                                                @Ajax.ActionLink(t2, "EmloyeeFilterByBureau", new { bureau = t2 }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
+                                            </li>
                                         }
                                     </ul>
                                 </li>

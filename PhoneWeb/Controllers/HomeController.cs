@@ -32,9 +32,9 @@ namespace PhoneWeb.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.TxtUnderHeader = "Все телефоны1";
+            ViewBag.TxtUnderHeader = "Все телефоны";
 
-            var temp = _emps.Where(emp => emp.Surname.ToLower().Contains(surname.ToLower())).ToList();
+            var temp = _emps.Where(emp => emp.Surname.ToLower().Contains(surname.Trim().ToLower())).ToList();
 
             return PartialView(temp);
         }
