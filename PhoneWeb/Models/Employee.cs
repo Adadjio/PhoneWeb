@@ -20,7 +20,7 @@ namespace PhoneWeb.Models
     {
         public Employees()
         {
-            
+            /*
             this.AddEmployee("Name1", "Surname1", "Patronymic1", "5455", 416, "Админ. ОГТ", "ОГТ")
                 .AddEmployee("Name2", "Surname2", "Patronymic1", "5455", 416, "БАКП", "ОГТ")
                 .AddEmployee("Name3", "Surname3", "Patronymic1", "5455", 416, "БИО", "ОГТ")
@@ -51,7 +51,7 @@ namespace PhoneWeb.Models
                 .AddEmployee("Name24", "Surname24", "Patronymic1", "5455", 416, "Админ. ПМиШПО", "ТО ПМ И ШПО")
                 .AddEmployee("Name25", "Surname25", "Patronymic1", "5455", 416, "БМиШПО", "ТО ПМ И ШПО")
                 .AddEmployee("Name26", "Surname26", "Patronymic1", "5455", 416, "БС ПМиШПО", "ТО ПМ И ШПО");
-            
+            */
         }
 
     }

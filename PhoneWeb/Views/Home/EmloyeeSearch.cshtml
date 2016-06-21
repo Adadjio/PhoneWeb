@@ -28,13 +28,10 @@
     </table>
 
     <script>
-        $(document).ready(function (event) {
-            $('p[id="txtUnderHeader"]').text(@ViewBag.TxtUnderHeader);
-        });
+        $(document).ready(
+            function (event) {
+                $('p[id="txtUnderHeader"]').text("@ViewBag.TxtUnderHeader");
+            }
+        );
     </script>
-
-
-
-
-
 </div>
