@@ -9,3 +9,56 @@ ul.list-group>li.my-list-group{
 ul.list-group>li.my-list-group>ul.list-group>li{
     border: none;
 }
+
+/* Задаем ширину меню */
+#menu1{
+    width:210px;
+    padding:0px;
+    margin:0px;
+    margin:15px;
+}
+
+#menu1 button{
+    display:block;
+    line-height:32px;
+    height:32px;
+    margin:7px 0;
+    width:206px;
+}
+.men{
+    display: none;
+}
+.men ul{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+.men li{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+    display:block;
+    line-height:32px;
+    height:32px;
+    margin:7px 0;
+    width:206px;
+}
+.men li a{
+    padding:0px;
+    margin:0px;
+    display:block;
+    height:33px;
+    text-transform:uppercase;
+    font-size:16px;
+    font-weight:bold;
+    line-height:32px;
+    padding:0 0 0 25px;
+    text-decoration:none;
+    color:#006A35;
+    background: #95DF8E;
+    border:solid 1px #006A35;
+}
+.men li a:hover{
+    background: #35C835;
+    color:#fff;
+}

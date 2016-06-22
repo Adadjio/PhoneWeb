@@ -21,11 +21,65 @@
             </div>
             <div class="panel-body">
 
+                <div id="menu1">
+
+                    <button onclick="f('ogt')">ОГТ</button>
+                    <div id="ogt" class="men">
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">jQuery</a></li>
+                            <li><a href="#">PHP</a></li>
+                            <li><a href="#"> Видео курс </a></li>
+                        </ul>
+                    </div>
+                    <button onclick="f('ppo')">ППО</button>
+                    <div id="ppo" class="men">
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">jQuery</a></li>
+                            <li><a href="#">PHP</a></li>
+                            <li><a href="#"> Видео курс </a></li>
+                        </ul>
+                    </div>
+                    <button onclick="f('gro')">ГРОиКПО</button>
+                    <div id="gro" class="men">
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">jQuery</a></li>
+                            <li><a href="#">PHP</a></li>
+                            <li><a href="#"> Видео курс </a></li>
+                        </ul>
+                    </div>
+                    <button onclick="f('shpo')">ПМиШПО</button>
+                    <div id="shpo" class="men">
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">jQuery</a></li>
+                            <li><a href="#">PHP</a></li>
+                            <li><a href="#"> Видео курс </a></li>
+                        </ul>
+                    </div>
+                    <button onclick="f('valki')">ПВиЭО</button>
+                    <div id="valki" class="men">
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">jQuery</a></li>
+                            <li><a href="#">PHP</a></li>
+                            <li><a href="#"> Видео курс </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
                 <ul class="list-group">
                     <li class="list-group-item my-list-group">
 
-                        @*<a href="#" class="active text-uppercase">Все</a>*@
-                        @Ajax.ActionLink("Все", "EmloyeeSearch", new { surname = " "}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post"}, new { @class= "text-uppercase"})
+                        @Ajax.ActionLink("Все", "EmloyeeSearch", new { surname = " "}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post"}, new { @class= "text-uppercase", @onclick = "f('valki')" })
 
                         <ul class="list-group">
 
@@ -33,8 +87,7 @@
                             {
                                 <li class="list-group-item">
 
-                                    <p>
-                                        @*<a href="#">@_div.Name</a>*@
+                                    <p>                                        
                                         @{ string t = @_div.Name.ToString();}
 
                                         @Ajax.ActionLink(t, "EmloyeeFilterByDivision", new { division = t}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
@@ -44,7 +97,7 @@
                                         @foreach (var bureau in _div.Bureaus)
                                         {
                                             <li class="list-group-item list-group-item-warning">
-                                                @*<a href="#">@bureau</a>*@
+                                                
                                                 @{ string t2 = @bureau.ToString();}
 
                                                 @Ajax.ActionLink(t2, "EmloyeeFilterByBureau", new { bureau = t2 }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
@@ -64,6 +117,7 @@
 
 
     </div>
+
 
     <div class="col-lg-5 col-md-7 col-sm-8 table-responsive">
 
@@ -107,3 +161,28 @@
     </div>
 
 </div>
+
+<script>
+    function f(p){
+        if(p == 'ogt'){
+            if($('#ogt').css( "display" ) == 'none') $('#ogt').show();
+            else $('#ogt').hide();
+        }
+        else if(p == 'ppo'){
+            if($('#ppo').css( "display" ) == 'none') $('#ppo').show();
+            else $('#ppo').hide();
+        }
+        else if(p == 'gro'){
+            if($('#gro').css( "display" ) == 'none') $('#gro').show();
+            else $('#gro').hide();
+        }
+        else if(p == 'shpo'){
+            if($('#shpo').css( "display" ) == 'none') $('#shpo').show();
+            else $('#shpo').hide();
+        }
+        else if(p == 'valki'){
+            if($('#valki').css( "display" ) == 'none') $('#valki').show();
+            else $('#valki').hide();
+        }
+    }
+</script>
