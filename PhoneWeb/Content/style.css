@@ -15,14 +15,11 @@ ul.list-group>li.my-list-group>ul.list-group>li{
     width:210px;
     padding:0px;
     margin:0px;
-    margin:15px;
+    
 }
 
-#menu1 button{
-    display:block;
-    line-height:32px;
-    height:32px;
-    margin:7px 0;
+#menu1 .myBtn{
+    
     width:206px;
 }
 .men{
@@ -54,11 +51,11 @@ ul.list-group>li.my-list-group>ul.list-group>li{
     line-height:32px;
     padding:0 0 0 25px;
     text-decoration:none;
-    color:#006A35;
-    background: #95DF8E;
-    border:solid 1px #006A35;
+    color:#333;
+    background: #fff;
+    border:solid 1px #46b8da;
 }
 .men li a:hover{
-    background: #35C835;
-    color:#fff;
+    background: #e6e6e6;
+    color:#333;
 }

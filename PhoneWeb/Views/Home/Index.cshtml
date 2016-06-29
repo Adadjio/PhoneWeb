@@ -23,63 +23,34 @@
 
                 <div id="menu1">
 
-                    <button onclick="f('ogt')">ОГТ</button>
-                    <div id="ogt" class="men">
-                        <ul>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">jQuery</a></li>
-                            <li><a href="#">PHP</a></li>
-                            <li><a href="#"> Видео курс </a></li>
-                        </ul>
-                    </div>
-                    <button onclick="f('ppo')">ППО</button>
-                    <div id="ppo" class="men">
-                        <ul>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">jQuery</a></li>
-                            <li><a href="#">PHP</a></li>
-                            <li><a href="#"> Видео курс </a></li>
-                        </ul>
-                    </div>
-                    <button onclick="f('gro')">ГРОиКПО</button>
-                    <div id="gro" class="men">
-                        <ul>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">jQuery</a></li>
-                            <li><a href="#">PHP</a></li>
-                            <li><a href="#"> Видео курс </a></li>
-                        </ul>
-                    </div>
-                    <button onclick="f('shpo')">ПМиШПО</button>
-                    <div id="shpo" class="men">
-                        <ul>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">jQuery</a></li>
-                            <li><a href="#">PHP</a></li>
-                            <li><a href="#"> Видео курс </a></li>
-                        </ul>
-                    </div>
-                    <button onclick="f('valki')">ПВиЭО</button>
-                    <div id="valki" class="men">
-                        <ul>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">jQuery</a></li>
-                            <li><a href="#">PHP</a></li>
-                            <li><a href="#"> Видео курс </a></li>
-                        </ul>
-                    </div>
+                    @foreach (var _div in ViewBag.Divisions)
+                    {
+                        <p>
+                            @{string te = @_div.Name.ToString();}
+                            @Ajax.ActionLink(te, "EmloyeeFilterByDivision", new { division = te }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" }, new { @class = "btn btn-primary myBtn", @onclick = "f('ogt')" })
+                        </p>
+
+                        <div id="ogt" class="men">
+                            <ul>
+                                @foreach (var bureau in _div.Bureaus)
+                                {
+                                    <li>
+
+                                        @{ string t2 = @bureau.ToString();}
+
+                                        @Ajax.ActionLink(t2, "EmloyeeFilterByBureau", new { bureau = t2 }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
+                                    </li>
+                                 }
+                            </ul>
+                        </div>
+                     }
                 </div>
 
 
                 <ul class="list-group">
                     <li class="list-group-item my-list-group">
 
-                        @Ajax.ActionLink("Все", "EmloyeeSearch", new { surname = " "}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post"}, new { @class= "text-uppercase", @onclick = "f('valki')" })
+                        @Ajax.ActionLink("Все", "EmloyeeSearch", new { surname = " " }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" }, new { @class = "text-uppercase", @onclick = "f('valki')" })
 
                         <ul class="list-group">
 
@@ -87,25 +58,25 @@
                             {
                                 <li class="list-group-item">
 
-                                    <p>                                        
+                                    <p>
                                         @{ string t = @_div.Name.ToString();}
 
-                                        @Ajax.ActionLink(t, "EmloyeeFilterByDivision", new { division = t}, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
+                                        @Ajax.ActionLink(t, "EmloyeeFilterByDivision", new { division = t }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
                                     </p>
 
                                     <ul class="list-group">
                                         @foreach (var bureau in _div.Bureaus)
                                         {
                                             <li class="list-group-item list-group-item-warning">
-                                                
+
                                                 @{ string t2 = @bureau.ToString();}
 
                                                 @Ajax.ActionLink(t2, "EmloyeeFilterByBureau", new { bureau = t2 }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
                                             </li>
-                                        }
+                                                    }
                                     </ul>
                                 </li>
-                            }
+                                                    }
 
                         </ul>
                     </li>
@@ -113,8 +84,6 @@
 
             </div>
         </div>
-
-
 
     </div>
 
@@ -124,7 +93,7 @@
         @using (Ajax.BeginForm("EmloyeeSearch", new AjaxOptions { UpdateTargetId = "results" }))
         {
             <div class="input-group">
-                <input type="text" name="surname" class="form-control input-lg" placeholder="Введите фамилию" />                
+                <input type="text" name="surname" class="form-control input-lg" placeholder="Введите фамилию" />
                 <div class="input-group-btn">
                     <button class="btn btn-default btn-lg" type="submit">
                         <i class="glyphicon glyphicon-search"></i>
@@ -163,25 +132,25 @@
 </div>
 
 <script>
-    function f(p){
-        if(p == 'ogt'){
-            if($('#ogt').css( "display" ) == 'none') $('#ogt').show();
+    function f(p) {
+        if (p == 'ogt') {
+            if ($('#ogt').css("display") == 'none') $('#ogt').show();
             else $('#ogt').hide();
         }
-        else if(p == 'ppo'){
-            if($('#ppo').css( "display" ) == 'none') $('#ppo').show();
+        else if (p == 'ppo') {
+            if ($('#ppo').css("display") == 'none') $('#ppo').show();
             else $('#ppo').hide();
         }
-        else if(p == 'gro'){
-            if($('#gro').css( "display" ) == 'none') $('#gro').show();
+        else if (p == 'gro') {
+            if ($('#gro').css("display") == 'none') $('#gro').show();
             else $('#gro').hide();
         }
-        else if(p == 'shpo'){
-            if($('#shpo').css( "display" ) == 'none') $('#shpo').show();
+        else if (p == 'shpo') {
+            if ($('#shpo').css("display") == 'none') $('#shpo').show();
             else $('#shpo').hide();
         }
-        else if(p == 'valki'){
-            if($('#valki').css( "display" ) == 'none') $('#valki').show();
+        else if (p == 'valki') {
+            if ($('#valki').css("display") == 'none') $('#valki').show();
             else $('#valki').hide();
         }
     }
