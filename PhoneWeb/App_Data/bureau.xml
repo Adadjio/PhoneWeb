@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Все>
-  <ОГТ>
+  <ОГТ id="ogt">
     <Bureau>Админ. ОГТ</Bureau>
     <Bureau>БАКП</Bureau>
     <Bureau>БИО</Bureau>
@@ -13,7 +13,7 @@
     <Bureau>БТО</Bureau>
     <Bureau>ЛВПТ</Bureau>
   </ОГТ>
-  <ТО_ППО>
+  <ТО_ППО id="ppo">
     <Bureau>Админ. ПО</Bureau>
     <Bureau>БПО №1</Bureau>
     <Bureau>БПО №2</Bureau>
@@ -21,17 +21,17 @@
     <Bureau>БС ПО</Bureau>
     <Bureau>БТиОН ПО</Bureau>
   </ТО_ППО>
-  <ТО_ГР_И_КПО>
+  <ТО_ГР_И_КПО id="gro">
     <Bureau>Админ. ГРО</Bureau>
     <Bureau>БГШиПТО</Bureau>
     <Bureau>БМГК</Bureau>
     <Bureau>БНИиМ</Bureau>
     <Bureau>БС ГРиКПО</Bureau>
   </ТО_ГР_И_КПО>
-  <ТО_ПВ_И_ЭО>
+  <ТО_ПВ_И_ЭО id="valki">
     <Bureau>БВиЭО</Bureau>
   </ТО_ПВ_И_ЭО>
-  <ТО_ПМ_И_ШПО>
+  <ТО_ПМ_И_ШПО id="shpo">
     <Bureau>Админ. ПМиШПО</Bureau>
     <Bureau>БМиШПО</Bureau>
     <Bureau>БС ПМиШПО</Bureau>

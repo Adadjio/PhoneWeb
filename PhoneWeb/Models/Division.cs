@@ -8,36 +8,23 @@ namespace PhoneWeb.Models
     public class Division
     {
         public string Name { get; set; }
+        public string Id { get; set; }
         public List<string> Bureaus { get; set; }
     }
 
-    public class Divisions
+    public class Divisions:List<Division>
     {
-        public List<Division> GetSubdivisions(string path = null)
+        public Division this[string name]
         {
-
-            List<Division> listSubdivisions = new List<Division>();
-            XmlDocument document = new XmlDocument();
-            // /App_Data/bureau.xml
-            if (path == null) document.Load(AppDomain.CurrentDomain.BaseDirectory + "App_Data\\bureau.xml"); //document.Load("bureau.xml");
-            else document.Load(path);
-
-            XmlNode root = document.DocumentElement; // Все
-            if (root == null) throw new FileLoadException("Ошибка загрузки файла со списком производств и бюро");
-
-            foreach (XmlNode sub in root.ChildNodes)
+            get
             {
-                Division sd = new Division();
-                sd.Name = sub.Name.Replace('_', ' ');
-                sd.Bureaus = new List<string>();
-
-                foreach (XmlNode bureau in sub.ChildNodes)
-                {
-                    sd.Bureaus.Add(bureau.InnerText);
-                }
-                listSubdivisions.Add(sd);
+                return this.Find(x => x.Name == name);
             }
-            return listSubdivisions;
+            set
+            {
+                var index = this.FindIndex(x => x.Name == name);
+                this[index] = value;
+            }
         }
     }
 }

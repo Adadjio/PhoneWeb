@@ -1,7 +1,7 @@
 ﻿@model PhoneWeb.Models.Employees
 
 
-@{
+@{ 
     ViewBag.Title = "Телефоны ОГТ";
     Layout = "~/Views/_LayoutPage.cshtml";
 }
@@ -26,62 +26,25 @@
                     @foreach (var _div in ViewBag.Divisions)
                     {
                         <p>
-                            @{string te = @_div.Name.ToString();}
-                            @Ajax.ActionLink(te, "EmloyeeFilterByDivision", new { division = te }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" }, new { @class = "btn btn-primary myBtn", @onclick = "f('ogt')" })
+                            @{string nameDiv = @_div.Name.ToString(); string click = "f('" + @_div.Id.ToString() + "')";}
+                            @Ajax.ActionLink(nameDiv, "EmloyeeFilterByDivision", new { division = nameDiv }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" }, new { @class = "btn btn-primary myBtn", @onclick = click })
                         </p>
 
-                        <div id="ogt" class="men">
+                        <div id="@_div.Id.ToString()" class="men">
                             <ul>
                                 @foreach (var bureau in _div.Bureaus)
                                 {
                                     <li>
 
-                                        @{ string t2 = @bureau.ToString();}
+                                        @{ string _bureau = @bureau.ToString();}
 
-                                        @Ajax.ActionLink(t2, "EmloyeeFilterByBureau", new { bureau = t2 }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
+                                        @Ajax.ActionLink(_bureau, "EmloyeeFilterByBureau", new { bureau = _bureau }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
                                     </li>
-                                 }
+                                            }
                             </ul>
                         </div>
-                     }
+                                            }
                 </div>
-
-
-                <ul class="list-group">
-                    <li class="list-group-item my-list-group">
-
-                        @Ajax.ActionLink("Все", "EmloyeeSearch", new { surname = " " }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" }, new { @class = "text-uppercase", @onclick = "f('valki')" })
-
-                        <ul class="list-group">
-
-                            @foreach (var _div in ViewBag.Divisions)
-                            {
-                                <li class="list-group-item">
-
-                                    <p>
-                                        @{ string t = @_div.Name.ToString();}
-
-                                        @Ajax.ActionLink(t, "EmloyeeFilterByDivision", new { division = t }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
-                                    </p>
-
-                                    <ul class="list-group">
-                                        @foreach (var bureau in _div.Bureaus)
-                                        {
-                                            <li class="list-group-item list-group-item-warning">
-
-                                                @{ string t2 = @bureau.ToString();}
-
-                                                @Ajax.ActionLink(t2, "EmloyeeFilterByBureau", new { bureau = t2 }, new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" })
-                                            </li>
-                                                    }
-                                    </ul>
-                                </li>
-                                                    }
-
-                        </ul>
-                    </li>
-                </ul>
-
             </div>
         </div>
 
@@ -131,27 +94,58 @@
 
 </div>
 
-<script>
-    function f(p) {
-        if (p == 'ogt') {
+
+<script type="text/javascript">
+    function f(id) {
+        if (id == 'ogt') {
             if ($('#ogt').css("display") == 'none') $('#ogt').show();
-            else $('#ogt').hide();
+        else {
+            $('#ogt').hide();
         }
-        else if (p == 'ppo') {
-            if ($('#ppo').css("display") == 'none') $('#ppo').show();
-            else $('#ppo').hide();
+        $('#ppo').hide();
+        $('#gro').hide();
+        $('#shpo').hide();
+        $('#valki').hide();
+    }
+    else if (id == 'ppo') {
+        if ($('#ppo').css("display") == 'none') $('#ppo').show();
+        else {
+            $('#ppo').hide();
         }
-        else if (p == 'gro') {
-            if ($('#gro').css("display") == 'none') $('#gro').show();
-            else $('#gro').hide();
+        $('#ogt').hide();
+        $('#gro').hide();
+        $('#shpo').hide();
+        $('#valki').hide();
+    }
+    else if (id == 'gro') {
+        if ($('#gro').css("display") == 'none') $('#gro').show();
+        else {
+            $('#gro').hide();
         }
-        else if (p == 'shpo') {
-            if ($('#shpo').css("display") == 'none') $('#shpo').show();
-            else $('#shpo').hide();
+        $('#ogt').hide();
+        $('#ppo').hide();
+        $('#shpo').hide();
+        $('#valki').hide();
+    }
+    else if (id == 'shpo') {
+        if ($('#shpo').css("display") == 'none') $('#shpo').show();
+        else {
+            $('#shpo').hide();
         }
-        else if (p == 'valki') {
-            if ($('#valki').css("display") == 'none') $('#valki').show();
-            else $('#valki').hide();
+        $('#ogt').hide();
+        $('#ppo').hide();
+        $('#gro').hide();
+        $('#valki').hide();
+    }
+    else if (id == 'valki') {
+        if ($('#valki').css("display") == 'none') $('#valki').show();
+        else {
+            $('#valki').hide();
         }
+        $('#ogt').hide();
+        $('#ppo').hide();
+        $('#gro').hide();
+        $('#shpo').hide();
+    }
     }
 </script>

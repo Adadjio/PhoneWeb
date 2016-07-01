@@ -6,14 +6,18 @@ namespace PhoneWeb.Controllers
 {
     public class HomeController : Controller
     {
+
+        Divisions _subDiv;
+
         // GET: Home
         public ActionResult Index()
         {
-            Divisions _div = new Divisions();
-            var subDiv = _div.GetSubdivisions();
+            DataLayer dataLayer = new DataLayer();
+            var subDiv = dataLayer.GetSubdivisions();
+            _subDiv = subDiv;
             ViewBag.Divisions = subDiv;
-
-            Employees _emps = new DataLayer().GetEmployees();
+            
+            Employees _emps = dataLayer.GetEmployees();
             ViewBag.Title = "Телефоны ОГТ";
 
             ViewBag.TxtUnderHeader = "Все телефоны";
@@ -42,7 +46,8 @@ namespace PhoneWeb.Controllers
         [HttpPost]
         public ActionResult EmloyeeFilterByDivision(string division)
         {
-            Employees _emps = new DataLayer().GetEmployees();
+            DataLayer dataLayer = new DataLayer();
+            Employees _emps = dataLayer.GetEmployees();
 
             if (_emps.Count <= 0 || division == null)
             {
